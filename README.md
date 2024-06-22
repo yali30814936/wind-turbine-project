@@ -11,8 +11,12 @@ For develepment convenience, I changed the format of the spectrum dataset. The c
 * tqdm
 * matplotlib
 
-## Program Parameters
+## Usage
+```
+python main.py <mode> [-h] [-i INPUT_DIR] [-o OUTPUT_DIR] [-t THETA] [-c THRESHOLD_CNT] [-n NCPU] [-s SMOOTH_WINDOW_HZ] [-q] [-f]
+```
 
+## Required Parameters
 * `mode`: The mode of the program, with two options:
   * `evaluate`: Evaluation mode
   * `convert`: Conversion mode
