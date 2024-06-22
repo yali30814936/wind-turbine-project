@@ -19,15 +19,17 @@ For develepment convenience, I changed the format of the spectrum dataset. The c
 
 
 ## Optional Parameters
-* `-h` or `--help`: Show help message and exit.
-* `-i` or `--input_dir`: Input directory, default is `data`.
-* `-o` or `--output_dir`: Output directory, default is `results`.
-* `-t` or `--theta`: Threshold value, type is float, default is `30`.
-* `-s` or `--smooth_window_Hz`: Smooth window size in Hz, type is float, default is `5`.
-* `-c` or `--threshold_cnt`: Threshold count, type is integer, default is `3`.
-* `-n` or `--ncpu`: Number of CPUs to use, set to `-1` to use half of your cores, type is integer, default is `-1`.
-* `-q` or `--quiet`: Quiet mode, use this flag to disable outputting plots for each predictions.
-* `f` or `force`: Force to overwrite the output directory if it already exists.
+| Parameter | Description |
+| --- | --- |
+| `-h` or `--help` | Show help message and exit. |
+| `-i` or `--input_dir` | Input directory, default is `data`. |
+| `-o` or `--output_dir` | Output directory, default is `results`. |
+| `-t` or `--theta` | Threshold value, an RoI grid is considered abnormal if its error is greater or equal to this threshold. Default is `35.0`. |
+| `-c` or `--threshold_cnt` | Threshold count, a sample is considered abnormal if the number of abnormal grids is greater or equal to this threshold. Default is `4`. |
+| `-n` or `--ncpu` | Number of CPUs to use, set to `-1` to use half of your cores, default is `-1`. |
+| `-s` or `--smooth_window_Hz` | Moving average window size in Hz, default is `5.0`. |
+| `-q` or `--quiet` | Quiet mode, use this flag to disable outputting plots for each predictions. |
+| `-f` or `force` | Force to overwrite the output directory if it already exists. |
 
 
 ## Usage Examples
@@ -37,14 +39,17 @@ You don't have to worry about subdirectories. This program will find them.
 python main.py convert -i path/to/input -o path/to/output -n 2
 ```
 ### Evaluation Mode
-You should put the datasets in the following manner:
-```
-+ data
- + abnormal
- + normal
- + pattern  <- put the sample to represent "normal case" here.
-```
-Again, **make sure you converted the dataset before evaluating!!!**
 ```
 python main.py evaluate -i path/to/input -o path/to/output -t 35.5 -c 5 -n 4
 ```
+You should put the datasets in the following manner:
+```
+data/
+├─ abnormal/
+│  └─ abnormal_cases.csv
+├─ normal/
+│  └─ normal_cases.csv
+└─ pattern/
+   └─ model_cases.csv    <- put the sample to represent "normal case" here.
+```
+Again, **make sure you converted the dataset before evaluating!!!**
