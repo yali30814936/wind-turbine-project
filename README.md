@@ -38,10 +38,11 @@ python main.py <mode> [-h] [-i INPUT_DIR] [-o OUTPUT_DIR] [-t THETA] [-c THRESHO
 
 ## Usage Examples
 ### Conversion Mode
-You don't have to worry about subdirectories. This program will find them.
 ```
 python main.py convert -i path/to/input -o path/to/output -n 2
 ```
+Note that it will also convert the dataset in its subdirectories.
+
 ### Evaluation Mode
 ```
 python main.py evaluate -i path/to/input -o path/to/output -t 35.5 -c 5 -n 4
@@ -50,10 +51,17 @@ You should put the datasets in the following manner:
 ```
 data/
 ├─ abnormal/
-│  └─ abnormal_cases.csv
+│  ├─ abnormal_sample_01.csv
+│  ├─ abnormal_sample_02.csv
+│  └─ etc.
 ├─ normal/
-│  └─ normal_cases.csv
-└─ pattern/
-   └─ model_cases.csv    <- put the sample to represent "normal case" here.
+│  ├─ normal_sample_01.csv
+│  ├─ normal_sample_02.csv
+│  └─ etc.
+└─ pattern/                 <- put the sample to represent "normal case" here.
+   ├─ model_sample_01.csv
+   ├─ model_sample_02.csv
+   └─ etc.
+
 ```
 Again, **make sure you converted the dataset before evaluating!!!**
