@@ -58,7 +58,7 @@ data/
 │  ├─ normal_sample_01.csv
 │  ├─ normal_sample_02.csv
 │  └─ etc.
-└─ pattern/                 <- put the sample to represent "normal case" here.
+└─ pattern/                 <- put the sample that represent "normal case" here.
    ├─ model_sample_01.csv
    ├─ model_sample_02.csv
    └─ etc.
