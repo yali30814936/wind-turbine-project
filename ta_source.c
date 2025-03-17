@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "student_submission.c"
+
+void test();
 
 int main() {
 	test();
